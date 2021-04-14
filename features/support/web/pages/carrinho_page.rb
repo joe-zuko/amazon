@@ -1,6 +1,7 @@
 class Carrinho < SitePrism::Page
   include Capybara::DSL
 
+  element :botaoCompra, "#sc-buy-box-ptc-button"
   element :botaoExcluir, "input[type='submit'][data-action='delete']"
   element :msgExcluir, ".sc-your-amazon-cart-is-empty"
   element :valorTotal, "#sc-subtotal-amount-activecart"
@@ -9,16 +10,16 @@ class Carrinho < SitePrism::Page
   element :precoDois, "[data-item-count='2'] .sc-product-price"
   element :precoTres, "[data-item-count='3'] .sc-product-price"
 
+  def finalizar_compra
+    botaoCompra.click
+  end
+
   def excluir
     botaoExcluir.click
   end
 
   def msg_excluido
     msgExcluir.text
-  end
-
-  def soma_precos
-    buscaFail.text
   end
 
   def preco_produtos

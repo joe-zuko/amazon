@@ -44,3 +44,37 @@ end
 Então("vejo a mensagem {string}") do |achei_nada|
   expect(@resultados_page.busca_falha).to eql achei_nada
 end
+
+# compra com boleto
+
+Dado("que eu adiciono {string} ao meu carrinho") do |compra|
+  steps %{
+    Dado que procuro por "#{compra}" na barra de busca e entro nos detalhes do produto
+}
+  @resultados_page.add_carrinho
+  @resultados_page.carrinho_go
+end
+
+Dado("fecho o pedido") do
+  @carrinho_page.finalizar_compra
+end
+
+Dado("escolho o endereço que quero enviar junto com a entrega padrão") do
+  @checkout.endereco
+  @checkout.entrega
+  @checkout.continuar
+end
+
+Quando("eu clico em pagar com boleto") do
+  @checkout.boleto
+  @checkout.confirmar_boleto
+  @checkout.continuar
+end
+
+Então("devo ver o botão confirmar pedido") do
+  @checkout.confirmar_pedido
+end
+
+Então("a soma do produto mais o frete deve ser igual ao valor total a ser pago") do
+  expect(@checkout.soma_produtos).to eql @checkout.valor_total_compra
+end

@@ -24,5 +24,18 @@ Funcionalidade: Compras
 
         Dado que procuro por "@#$@!" na barra de busca
         Então vejo a mensagem "Nenhum resultado para @#$@!."
+
+    @compra_boleto
+    Cenario: Compra com boleto
+
+        Dado que eu adiciono "Akira - Vol. 4" ao meu carrinho
+        E fecho o pedido
+        E escolho o endereço que quero enviar junto com a entrega padrão
+        Quando eu clico em pagar com boleto 
+        Então devo ver o botão confirmar pedido
+        E a soma do produto mais o frete deve ser igual ao valor total a ser pago
+
+
+        
    
   

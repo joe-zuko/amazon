@@ -4,20 +4,22 @@ Bem vindo ao projeto de automação do site da Amazon.
 
 Ele foi todo criado utilizando Cucumber, Capybara,  Rspec, Ruby, SitePrism e Selenium WebDriver.
 
-Total de cenários nessa versão: 10
+Total de cenários nessa versão: 11
 
 Entre algumas de suas funcionalidades, estão:
 - automação de login e verificações em todos os aspectos;
 - automação do motor de busca;
 - verifica preço de capa é o mesmo do modal dinamicamente; 
 - verifica preço de total da compra é o mesmo do valor total da pagina e do modal dinamicamente; 
-- Cenario de compras com boleto (em breve);
+- Cenario de compras com boleto;
 - Cenario de desistencia de compras;
 - gerador de relatório em HTML (salvo na pasta /log)
 
-Obs: As vezes o site da Amazon percebe a automação e mostra um Capcha, quebrando ela. Nesse caso tem que repetir o comando de rodar a automação, isso aconteceu duas vezes, então não custa documentar aqui o ocorrido.
+Obs 1: A compra com boleto não é finalizada para evitar o site da Amazon fazer pedidos que não serão comprados, mas a automação verifica se o botão finalizar compra existe e é funcional.
 
-Obs: É aconselhavel usar o saida via html para ter melhor leitura da soma dos resultados
+Obs 2: As vezes o site da Amazon percebe a automação e mostra um Capcha, quebrando ela. Nesse caso tem que repetir o comando de rodar a automação pois isso aconteceu duas vezes, portanto não custa documentar aqui o ocorrido.
+
+Obs 3: É aconselhavel usar o saida via html para ter melhor leitura da soma dos resultados
 
 
 ## Necessário instalar:
