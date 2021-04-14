@@ -9,7 +9,7 @@ Funcionalidade: Buscar de produtos
     
     @busca_feliz
     Cenario: Buscar produto
-        Dado que procuro por "Akira - Vol. 06" na barra de busca e entro nos detalhes do produto
+        Dado que procuro por "Akira - Vol. 5" na barra de busca e entro nos detalhes do produto
         Então verifico se o valor de capa é o mesmo valor do box do carrinho
    
     @busca_infeliz
