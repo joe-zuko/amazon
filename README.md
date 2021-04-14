@@ -9,6 +9,7 @@ Total de cenários nessa versão: 11
 Entre algumas de suas funcionalidades, estão:
 - automação de login e verificações em todos os aspectos;
 - automação do motor de busca;
+- verifica se o produto comprado é o certo;
 - verifica preço de capa é o mesmo do modal dinamicamente; 
 - verifica preço de total da compra é o mesmo do valor total da pagina e do modal dinamicamente; 
 - Cenario de compras com boleto;
