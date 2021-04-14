@@ -4,12 +4,13 @@ Bem vindo ao projeto de automação do site da Amazon.
 
 Ele foi todo criado utilizando Cucumber, Capybara,  Rspec, Ruby, SitePrism e Selenium WebDriver.
 
-Total de cenários nessa versão: 11
+Total de cenários nessa versão: 10
 
 Entre algumas de suas funcionalidades, estão:
 - automação de login e verificações em todos os aspectos;
 - automação do motor de busca;
 - verifica preço de capa é o mesmo do modal dinamicamente; 
+- verifica preço de total da compra é o mesmo do valor total da pagina e do modal dinamicamente; 
 - Cenario de compras com boleto (em breve);
 - Cenario de desistencia de compras;
 - gerador de relatório em HTML (salvo na pasta /log)
