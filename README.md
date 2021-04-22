@@ -20,7 +20,9 @@ Obs 1: A compra com boleto não é finalizada para evitar o site da Amazon fazer
 
 Obs 2: As vezes o site da Amazon percebe a automação e mostra um Capcha, quebrando ela. Nesse caso tem que repetir o comando de rodar a automação pois isso aconteceu duas vezes, portanto não custa documentar aqui o ocorrido.
 
-Obs 3: É aconselhavel usar o saida via html para ter melhor leitura da soma dos resultados
+Obs 3: O site da Amazon algumas vezes percebe que está sendo feita uma automação e apresenta um waiting em loop, isso acontece quando se digita o comando cucumber, quando os cenários são rodados de forma isolada isso nunca acontece.
+
+Obs 4: É aconselhavel usar o saida via html para ter melhor leitura da soma dos resultados
 
 
 ## Necessário instalar:

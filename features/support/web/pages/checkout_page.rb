@@ -10,9 +10,7 @@ class CheckOut < SitePrism::Page
   element :pedidoTotal, "#subtotals-marketplace-table [data-testid=''] .a-size-medium.a-text-right"
   element :pedidoValor, :xpath, "//*[@id='subtotals-marketplace-table']/tbody/tr[1]/td[2]"
   element :freteValor, :xpath, "//*[@id='subtotals-marketplace-table']/tbody/tr[2]/td[2]"
-  element :precoUm, "[data-item-count='1'] .sc-product-price"
-  element :precoDois, "[data-item-count='2'] .sc-product-price"
-  element :precoTres, "[data-item-count='3'] .sc-product-price"
+  element :descontoProduto, :xpath, "//*[@id='subtotals-marketplace-table']/tbody/tr[4]/td[2]"
 
   def endereco
     botaoEndereco.click
@@ -45,7 +43,8 @@ class CheckOut < SitePrism::Page
   def soma_produtos
     @pedido = pedidoValor.text.split
     @frete = freteValor.text.split
-    @conta = @pedido[1].gsub(/[.,]/, "." => "", "," => ".").to_f + @frete[1].gsub(/[.,]/, "." => "", "," => ".").to_f
+    @desconto = descontoProduto.text.split
+    @conta = (@pedido[1].gsub(/[.,]/, "." => "", "," => ".").to_f + @frete[1].gsub(/[.,]/, "." => "", "," => ".").to_f) - @desconto[1].gsub(/[.,]/, "." => "", "," => ".").to_f
     @resultado = sprintf("%.2f", @conta)
   end
 end
