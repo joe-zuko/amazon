@@ -35,10 +35,11 @@ class Carrinho < SitePrism::Page
   end
 
   def soma_produtos
-    @preco_um = precoUm.text.split
-    @preco_dois = precoDois.text.split
-    @preco_tres = precoTres.text.split
-    @conta = @preco_um[1].gsub(/[.,]/, "." => "", "," => ".").to_f + @preco_dois[1].gsub(/[.,]/, "." => "", "," => ".").to_f + @preco_tres[1].gsub(/[.,]/, "." => "", "," => ".").to_f
+    valor_primeiro_produto = precoUm.text.split.select { |numeros| numeros.to_f >= 1 }
+    valor_segundo_produto = precoDois.text.split.select { |numeros| numeros.to_f >= 1 }
+    valor_terceiro_produto = precoTres.text.split.select { |numeros| numeros.to_f >= 1 }
+
+    @conta = valor_primeiro_produto[0].gsub(/[.,]/, "." => "", "," => ".").to_f + valor_segundo_produto[0].gsub(/[.,]/, "." => "", "," => ".").to_f + valor_terceiro_produto[0].gsub(/[.,]/, "." => "", "," => ".").to_f
     @resultado = sprintf("%.2f", @conta)
   end
 end
