@@ -41,14 +41,16 @@ class CheckOut < SitePrism::Page
   end
 
   def soma_produtos
-    pedido = pedidoValor.text.split.select { |numeros| numeros.to_f >= 1 }
-    frete = freteValor.text.split.select { |numeros| numeros.to_f >= 1 }
-    desconto = descontoProduto.text.split.select { |numeros| numeros.to_f >= 1 }
+    pedido = pedidoValor.text.gsub(/[.,^a-zA-Z$À-ú]/, "." => "", "," => ".")
+    pedido = pedido.split.select { |numeros| numeros.to_f >= 1 }
+
+    frete = freteValor.text.gsub(/[.,^a-zA-Z$À-ú]/, "." => "", "," => ".")
+    frete = frete.split.select { |numeros| numeros.to_f >= 1 }
 
     if page.has_text?("Promoção aplicada:")
-      puts @conta = (pedido[0].gsub(/[.,]/, "." => "", "," => ".").to_f + frete[0].gsub(/[.,]/, "." => "", "," => ".").to_f) - frete[0].gsub(/[.,]/, "." => "", "," => ".").to_f
+      @conta = (pedido[0].to_f + frete[0].to_f) - frete[0].to_f
     else
-      puts @conta = pedido[0].gsub(/[.,]/, "." => "", "," => ".").to_f + frete[0].gsub(/[.,]/, "." => "", "," => ".").to_f
+      @conta = pedido[0].to_f + frete[0].to_f
     end
 
     @resultado = sprintf("%.2f", @conta)
